@@ -7,7 +7,7 @@ class InputsConfig:
     2 : Ethereum model
         3 : AppendableBlock model
     """
-    model = 3
+    model = 1
 
     ''' Input configurations for the base model '''
     if model == 0:
@@ -41,7 +41,8 @@ class InputsConfig:
     ''' Input configurations for Bitcoin model '''
     if model == 1:
         ''' Block Parameters '''
-        Binterval = 600  # Average time (in seconds)for creating a block in the blockchain
+        HALVING_INTERVAL = 80
+        Binterval = 320  # Average time (in seconds)for creating a block in the blockchain
         Bsize = 1.0  # The block size in MB
         Bdelay = 0.42  # average block propogation delay in seconds, #Ref: https://bitslog.wordpress.com/2016/04/28/uncle-mining-an-ethereum-consensus-protocol-flaw/
         Breward = 12.5  # Reward for mining a block
@@ -49,6 +50,7 @@ class InputsConfig:
         ''' Transaction Parameters '''
         hasTrans = True  # True/False to enable/disable transactions in the simulator
         Ttechnique = "Light"  # Full/Light to specify the way of modelling transactions
+        ORDER_METHOD = "FIFO"
         Tn = 10  # The rate of the number of transactions to be created per second
         # The average transaction propagation delay in seconds (Only if Full technique is used)
         Tdelay = 5.1
@@ -56,16 +58,38 @@ class InputsConfig:
         Tsize = 0.000546  # The average transaction size  in MB
 
         ''' Node Parameters '''
-        Nn = 3  # the total number of nodes in the network
+        Nn = 21  # the total number of nodes in the network
         NODES = []
         from Models.Bitcoin.Node import Node
         # here as an example we define three nodes by assigning a unique id for each one + % of hash (computing) power
-        NODES = [Node(id=0, hashPower=50), Node(
-            id=1, hashPower=20), Node(id=2, hashPower=30)]
+        NODES = [
+            Node(id=0, hashPower=50), 
+            Node(id=1, hashPower=20), 
+            Node(id=2, hashPower=30),
+            Node(id=3, hashPower=70),
+            Node(id=4, hashPower=50),
+            Node(id=5, hashPower=10),
+            Node(id=6, hashPower=60),
+            Node(id=7, hashPower=80),
+            Node(id=8, hashPower=90),
+            Node(id=9, hashPower=100),
+            Node(id=10, hashPower=110),
+            Node(id=11, hashPower=120),
+            Node(id=12, hashPower=130),
+            Node(id=13, hashPower=140),
+            Node(id=14, hashPower=150),
+            Node(id=15, hashPower=160),
+            Node(id=16, hashPower=170),
+            Node(id=17, hashPower=180),
+            Node(id=18, hashPower=190),
+            Node(id=19, hashPower=200),
+            Node(id=20, hashPower=210),
+            
+            ]
 
         ''' Simulation Parameters '''
         simTime = 10000  # the simulation length (in seconds)
-        Runs = 2  # Number of simulation runs
+        Runs = 10  # Number of simulation runs
 
     ''' Input configurations for Ethereum model '''
     if model == 2:

@@ -74,7 +74,17 @@ class LightTransaction():
         blocksize = p.Bsize
         pool= LightTransaction.pending_transactions
 
-        pool = sorted(pool, key=lambda x: x.fee, reverse=True) # sort pending transactions in the pool based on the gasPrice value
+        # pool = sorted(pool, key=lambda x: x.fee, reverse=True) # sort pending transactions in the pool based on the gasPrice value
+
+        # --- TASK 3A MODIFICATION START ---
+        # Toggle between Fee-Priority and FIFO using the variable from InputsConfig
+        if p.ORDER_METHOD == "FEE":
+            pool = sorted(pool, key=lambda x: x.fee, reverse=True) # Sort highest fee first
+            print("--- Transaction Ordering: FEE-PRIORITY ---")
+        elif p.ORDER_METHOD == "FIFO":
+            # Do not sort by fee; leave pool in its current arrival order
+            print("--- Transaction Ordering: FIFO ---")
+        # --- TASK 3A MODIFICATION END ---
 
         while count < len(pool):
                 if  (blocksize >= pool[count].size):
