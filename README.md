@@ -3,9 +3,9 @@
 This repository contains a modified version of the open-source **BlockSim** blockchain simulator. It was extended as part of the CSE729 Blockchain and Distributed Ledger coursework to analyze specific network parameters, transaction ordering mechanics, and economic incentives.
 
 ## Student Information
-* **Name:** [Your Name]
-* **Student ID:** [Your Student ID]
-* **Group Member (if applicable):** [Member Name & ID]
+* **Name:** Mahamudul Hasan
+* **Student ID:** 1000060317
+* **Email:** yourmridul24@gmail.com
 
 ## Custom Modifications (Section 2 Extensions)
 
