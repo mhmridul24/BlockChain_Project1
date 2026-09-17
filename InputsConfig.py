@@ -89,7 +89,7 @@ class InputsConfig:
 
         ''' Simulation Parameters '''
         simTime = 10000  # the simulation length (in seconds)
-        Runs = 10  # Number of simulation runs
+        Runs = 1  # Number of simulation runs
 
     ''' Input configurations for Ethereum model '''
     if model == 2:
